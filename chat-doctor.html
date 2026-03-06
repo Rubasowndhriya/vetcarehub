@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Chat with Doctor</title>
+
+<style>
+
+body{
+font-family:Segoe UI;
+background:#0f1c2e;
+color:white;
+margin:0;
+}
+
+header{
+background:#14263f;
+padding:15px;
+text-align:center;
+}
+
+.chat-container{
+width:400px;
+margin:40px auto;
+background:#1e3354;
+border-radius:10px;
+display:flex;
+flex-direction:column;
+height:500px;
+}
+
+.messages{
+flex:1;
+padding:15px;
+overflow-y:auto;
+}
+
+.msg{
+padding:10px;
+margin-bottom:10px;
+border-radius:8px;
+}
+
+.user{
+background:#2ecc71;
+align-self:flex-end;
+}
+
+.doctor{
+background:#34495e;
+}
+
+.input-box{
+display:flex;
+border-top:1px solid #333;
+}
+
+input{
+flex:1;
+padding:10px;
+border:none;
+outline:none;
+}
+
+button{
+background:#2ecc71;
+border:none;
+padding:10px 15px;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>💬 Chat with Doctor</h2>
+</header>
+
+<div class="chat-container">
+
+<div class="messages" id="messages">
+
+<div class="msg doctor">Hello, how can I help your pet today?</div>
+
+</div>
+
+<div class="input-box">
+
+<input id="messageInput" placeholder="Type message...">
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+var input=document.getElementById("messageInput");
+
+var message=input.value;
+
+if(message==="") return;
+
+var msg=document.createElement("div");
+
+msg.className="msg user";
+
+msg.innerText=message;
+
+document.getElementById("messages").appendChild(msg);
+
+input.value="";
+
+}
+
+</script>
+
+</body>
+</html>
